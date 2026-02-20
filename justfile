@@ -37,3 +37,7 @@ build:
 # Run the project
 run *args:
     cargo run -- {{ args }}
+
+# Start the web UI (watches for changes and restarts)
+serve *args:
+    watchexec -r -e rs,html,css,js -- cargo run -- serve {{ args }}

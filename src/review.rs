@@ -3,6 +3,7 @@ use chrono::NaiveDate;
 use crate::card::{self, Card};
 use crate::fsrs::{self, Grade};
 
+#[derive(serde::Serialize)]
 pub struct ReviewItem {
     pub card_index: usize,
     pub front_display: String,
@@ -10,6 +11,7 @@ pub struct ReviewItem {
     pub deck: String,
 }
 
+#[derive(serde::Serialize)]
 pub struct DeckSummary {
     pub name: String,
     pub total: usize,

@@ -23,13 +23,13 @@
         {
 
           default = pkgs.rustPlatform.buildRustPackage {
-            pname = "hashcards";
+            pname = "rote";
             version = "0.1.0";
             src = ./.;
             cargoLock.lockFile = ./Cargo.lock;
             meta = {
               description = "Hashcards";
-              mainProgram = "hashcards";
+              mainProgram = "rote";
             };
           };
         }
@@ -52,6 +52,7 @@
               fd
               ripgrep
               nixfmt-rfc-style
+              watchexec
             ];
           };
         }

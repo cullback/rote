@@ -1,12 +1,12 @@
-# Hashcards
+# Rote
 
-A plain-text spaced repetition system. You author flashcards in CSV files, and Hashcards handles scheduling using the [FSRS](https://github.com/open-spaced-repetition/fsrs4anki) algorithm.
+A plain-text spaced repetition system. You author flashcards in CSV files, and Rote handles scheduling using the [FSRS](https://github.com/open-spaced-repetition/fsrs4anki) algorithm.
 
 ## Install
 
 ```
 # With Nix
-nix profile install github:cullback/hashcards
+nix profile install github:cullback/rote
 
 # Or build from source
 cargo install --path .
@@ -23,12 +23,12 @@ science,Light takes approximately [8 minutes] to travel from the Sun to Earth,Th
 history,The shortest war in recorded history lasted [38 minutes],The Anglo-Zanzibar War of 1896,,,,,,
 ```
 
-You write the first four columns (`deck`, `front`, `back`, `media`). Leave the rest empty — Hashcards fills them in on first review.
+You write the first four columns (`deck`, `front`, `back`, `media`). Leave the rest empty — Rote fills them in on first review.
 
 Then drill:
 
 ```
-hashcards drill cards.csv
+rote drill cards.csv
 ```
 
 ```
@@ -54,7 +54,7 @@ At birth we have ~270; many fuse together during development
 Rate (1=forgot, 2=hard, 3=good, 4=easy): 3
 ```
 
-After the session, your CSV is updated in place with scheduling state. Run `hashcards drill` again tomorrow and only due cards appear.
+After the session, your CSV is updated in place with scheduling state. Run `rote drill` again tomorrow and only due cards appear.
 
 ## Features
 

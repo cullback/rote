@@ -1,9 +1,9 @@
 deck,front,back,media,id,stability,difficulty,due,last_review
-trivia,The longest war in history was between [the Netherlands] and [the Isles of Scilly],It lasted 335 years (1651–1986) with zero casualties,,,,,,
-trivia,What animal can survive in the vacuum of space?,Tardigrades (water bears)\nThey enter a state called cryptobiosis,,,,,,
-math,Euler's identity: $e^{i\pi} + 1 =$,$0$\nOften called the most beautiful equation in mathematics,,,,,,
-math,The sum of all natural numbers $1 + 2 + 3 + \cdots$ is sometimes assigned the value,$-\frac{1}{12}$\nVia Ramanujan summation and the Riemann zeta function $\zeta(-1)$,,,,,,
-science,At room temperature the only two liquid elements are [mercury] and [bromine],Mercury (Hg) is a metal\nBromine (Br) is a halogen,,,,,,
-science,The maximum mass a white dwarf star can have is called the [Chandrasekhar limit],$\approx 1.4 M_\odot$\nAbove this it collapses into a neutron star or black hole,,,,,,
-history,In 1932 the Australian military deployed Lewis guns against crop-destroying [emus] and lost,This conflict is known as the Great Emu War,,,,,,
-history,The last person to walk on the Moon was [Eugene Cernan] during Apollo 17,December 1972\nHis final words on the surface were addressed to his daughter,,,,,,
+trivia,The longest war in history was between [the Netherlands] and [the Isles of Scilly],It lasted 335 years (1651–1986) with zero casualties,,3cc000ca-f918-4509-b2d0-562ffe3dcd4b,,,,
+trivia,What animal can survive in the vacuum of space?,Tardigrades (water bears)\nThey enter a state called cryptobiosis,,6efb2d5e-4043-45d8-9231-c7582502a612,0.403,7.195,2026-02-20,2026-02-19
+math,Euler's identity: $e^{i\pi} + 1 =$,$0$\nOften called the most beautiful equation in mathematics,,035243ea-f401-42b3-903d-bedf2806ef1b,,,,
+math,The sum of all natural numbers $1 + 2 + 3 + \cdots$ is sometimes assigned the value,$-\frac{1}{12}$\nVia Ramanujan summation and the Riemann zeta function $\zeta(-1)$,,7e4ec474-df46-4918-852c-4bcd09099be6,15.691,3.225,2026-03-07,2026-02-19
+science,At room temperature the only two liquid elements are [mercury] and [bromine],Mercury (Hg) is a metal\nBromine (Br) is a halogen,,326320de-a495-45c1-9c0e-a5fe9a4f9cda,15.691,3.225,2026-03-07,2026-02-19
+science,The maximum mass a white dwarf star can have is called the [Chandrasekhar limit],$\approx 1.4 M_\odot$\nAbove this it collapses into a neutron star or black hole,,140fd568-fd7d-4f3c-a3da-329dc784fdec,0.403,7.195,2026-02-20,2026-02-19
+history,In 1932 the Australian military deployed Lewis guns against crop-destroying [emus] and lost,This conflict is known as the Great Emu War,,3a68a837-a1e9-4b50-a6a5-f682b89b57a5,15.691,3.225,2026-03-07,2026-02-19
+history,The last person to walk on the Moon was [Eugene Cernan] during Apollo 17,December 1972\nHis final words on the surface were addressed to his daughter,,7eb02fa0-9586-41e7-902b-16a41fee521c,0.403,7.195,2026-02-20,2026-02-19

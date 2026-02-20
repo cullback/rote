@@ -1,7 +1,7 @@
 use chrono::NaiveDate;
 use std::path::{Path, PathBuf};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct Card {
     pub deck: String,
     pub front: String,

@@ -1,21 +1,67 @@
-mod card;
-mod fsrs;
-mod review;
-
 use std::collections::HashMap;
 use std::io::{self, BufRead, Write};
 use std::path::PathBuf;
 
+use rote::{card, fsrs, review};
+
 fn main() {
     let args: Vec<String> = std::env::args().collect();
 
-    if args.len() < 3 || args[1] != "drill" {
-        eprintln!("Usage: hashcards drill <paths...>");
+    if args.len() < 2 {
+        eprintln!("Usage: rote <command> [args...]");
+        eprintln!("Commands:");
+        eprintln!("  drill <paths...>            Review cards in the terminal");
+        eprintln!("  serve <paths...> [-p PORT]   Start web UI (default port 3000)");
         std::process::exit(1);
     }
 
-    let paths = &args[2..];
-    let files = card::discover_files(paths);
+    match args[1].as_str() {
+        "drill" => {
+            if args.len() < 3 {
+                eprintln!("Usage: rote drill <paths...>");
+                std::process::exit(1);
+            }
+            drill(&args[2..]);
+        }
+        "serve" => {
+            if args.len() < 3 {
+                eprintln!("Usage: rote serve <paths...> [-p PORT]");
+                std::process::exit(1);
+            }
+            let (paths, port) = parse_serve_args(&args[2..]);
+            tokio::runtime::Runtime::new()
+                .unwrap()
+                .block_on(rote::web::serve(paths, port));
+        }
+        _ => {
+            eprintln!("Unknown command: {}", args[1]);
+            eprintln!("Commands: drill, serve");
+            std::process::exit(1);
+        }
+    }
+}
+
+fn parse_serve_args(args: &[String]) -> (Vec<String>, u16) {
+    let mut paths = Vec::new();
+    let mut port = 3000u16;
+    let mut i = 0;
+    while i < args.len() {
+        if args[i] == "-p" && i + 1 < args.len() {
+            port = args[i + 1].parse().unwrap_or_else(|_| {
+                eprintln!("Invalid port: {}", args[i + 1]);
+                std::process::exit(1);
+            });
+            i += 2;
+        } else {
+            paths.push(args[i].clone());
+            i += 1;
+        }
+    }
+    (paths, port)
+}
+
+fn drill(args: &[String]) {
+    let files = card::discover_files(args);
     if files.is_empty() {
         eprintln!("No CSV files found.");
         std::process::exit(1);
@@ -187,7 +233,6 @@ fn prompt_deck_selection(summaries: &[review::DeckSummary]) -> Vec<String> {
 
 fn shuffle<T>(items: &mut [T]) {
     // Simple Fisher-Yates using a basic seeded RNG (xorshift64)
-    // Seed with current timestamp for non-deterministic shuffling
     let mut state: u64 = std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
         .unwrap()
